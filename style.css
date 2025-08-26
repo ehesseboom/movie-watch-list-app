@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  --clr-background-1: hsl(0, 0%, 10%);
+  --clr-background-2: hsl(0, 0%, 15%);
+  --clr-accent: hsl(0, 0%, 15%);
+  --clr-text-1: hsl(0, 0%, 90%);
+  --clr-text-2: hsl(0, 0%, 50%);
+  --clr-text-3: hsl(0, 0%, 30%);
+
+  --letter-spacing-1: 0.05rem;
+  --letter-spacing-2: 0.1rem;
+  --word-spacing: 0.1rem;
+
+  --ff-ibm: "IBM Plex Sans", sans-serif;
+  --ff-inter: "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--ff-ibm);
+  font-size: 18px;
+}
+
+p,
+li,
+button,
+span {
+  line-height: 1.5;
+  letter-spacing: var(--letter-spacing-1);
+  word-spacing: var(--word-spacing);
+}
+
+body {
+  max-width: 100vw;
+  min-height: 100dvh;
+  padding: 1rem;
+  background-color: var(--clr-background-1);
+  color: var(--clr-text-1);
+}
+
+hr {
+  margin-block: 1rem;
+  border: 1px solid var(--clr-accent);
+}
+
+/* Button add movie */
+#btn-add-movie {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--clr-text-2);
+  display: flex;
+  justify-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+#btn-add-movie i {
+  color: var(--clr-text-1);
+  font-size: 1.2rem;
+}
+
+/* Movie input title + year */
+#wrapper-movie-input {
+  width: 100%;
+  display: none;
+  gap: 1rem;
+}
+
+#wrapper-movie-input.active {
+  display: flex;
+}
+
+#wrapper-movie-input input {
+  margin-bottom: 1rem;
+  background: none;
+  /* background-color: var(--clr-background-2); */
+  /* border-radius: 5px; */
+  /* padding: 0.5rem; */
+  border: none;
+  outline: none;
+  color: var(--clr-text-1);
+  letter-spacing: var(--letter-spacing-1);
+  word-spacing: var(--word-spacing);
+}
+
+#wrapper-movie-input input::placeholder {
+  color: var(--clr-text-2);
+  font-style: italic;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#wrapper-movie-input input:focus::placeholder {
+  opacity: 0.5;
+}
+
+#input-movie-title {
+  width: 70%;
+}
+
+#input-movie-year {
+  width: 30%;
+}
+
+/* Remove side scrollbar for movie input year */
+#input-movie-year::-webkit-outer-spin-button,
+#input-movie-year::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Movie list */
+#movie-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* Remove blue background when highlighted */
+.movie-title {
+  cursor: pointer;
+  user-select: none; /* Modern browsers */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -webkit-tap-highlight-color: transparent; /* iOS Safari / Chrome */
+}
+
+.movie-title:active {
+  background: none;
+}
+
+.year {
+  color: var(--clr-text-2);
+}
+
+.year::before {
+  content: " (";
+}
+
+.year::after {
+  content: ")";
+}
+
+/* Movie marked as watched */
+.watched {
+  text-decoration: line-through;
+  color: var(--clr-text-3);
+}
+
+.watched-year * {
+  color: var(--clr-text-3);
+}
+
+/* Remove zone for drag and drop */
+#remove-zone {
+  height: 7rem;
+  width: calc(100% - 2rem);
+  border-radius: 5px;
+  background-color: var(--clr-background-2);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 2rem;
+}
+
+#remove-zone i {
+  font-size: 3rem;
+  color: var(--clr-text-3);
+  pointer-events: none;
+}
+
+#remove-zone.active {
+  display: flex;
+}
+
+.dragging {
+  color: var(--clr-text-3);
+}
+
+.dragging-year * {
+  color: var(--clr-text-3);
+}
+
+/* Media query desktop */
+@media screen and (min-width: 900px) {
+  body {
+    max-width: 1120px;
+    margin: auto;
+  }
+
+  #remove-zone {
+    max-width: 60%;
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Movie Watch List</title>
+  </head>
+  <body>
+    <header>
+      <button id="btn-add-movie"><i class="ri-add-line"></i> Add Movie</button>
+    </header>
+
+    <hr />
+
+    <main>
+      <div id="wrapper-movie-input">
+        <input type="text" id="input-movie-title" placeholder="Title" />
+        <input
+          type="number"
+          id="input-movie-year"
+          placeholder="Year"
+          min="1880"
+        />
+      </div>
+      <ul id="movie-list"></ul>
+      <div id="remove-zone">
+        <i class="ri-delete-bin-line"></i>
+      </div>
+    </main>
+    <script src="script.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js", { scope: "/" })
+          .then(() => console.log("Service Worker registered"))
+          .catch((error) =>
+            console.error("Service Worker registration failed:", error)
+          );
+      }
+    </script>
+  </body>
+</html>
