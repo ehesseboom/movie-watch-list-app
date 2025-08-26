@@ -5,7 +5,6 @@ const FILES_TO_CACHE = [
   "script.js",
   "images/android-chrome-192x192.png",
   "images/android-chrome-512x512.png",
-  "manifest.json",
 ];
 
 self.addEventListener("install", (event) => {
