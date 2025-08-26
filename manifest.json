@@ -2,11 +2,11 @@
   "name": "Movie Watch List",
   "short_name": "MWL",
   "description": "A minimalist movie watch list app",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
+  "id": "/javascript/movie-watch-list/index.html",
   "icons": [
     {
       "src": "/images/android-chrome-192x192.png",

@@ -37,15 +37,5 @@
       </div>
     </main>
     <script src="script.js"></script>
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("/service-worker.js", { scope: "/" })
-          .then(() => console.log("Service Worker registered"))
-          .catch((error) =>
-            console.error("Service Worker registration failed:", error)
-          );
-      }
-    </script>
   </body>
 </html>
