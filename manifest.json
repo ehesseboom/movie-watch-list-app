@@ -4,8 +4,8 @@
   "description": "A minimalist movie watch list app",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#262626",
+  "theme_color": "#1a1a1a",
   "id": "/javascript/movie-watch-list/index.html",
   "icons": [
     {
